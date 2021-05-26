@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <script src='file:///android_asset/app.js'></script>
+</head>
+	
+<script>
+    //Called after application is started.
+    let file= app.ReadFile(
+    "Misc/highest-return-trade (1).json"
+     )
+     let json = JSON.parse(file)
+     
+    function OnStart()
+    {
+    console.log(json)
+    let ett = document.getElementById("ett")
+    ett.innerHtml = json.puzzle
+        app.ShowPopup( json.data );
+    }
+</script>
+
+<style>
+	body { background-color: #ffffff; }
+    .hello 
+    { 
+        font-size: 42; 
+        width: 100%;
+        margin-top: 2em;
+        text-align: center;
+        color: blue;
+    }
+</style>
+
+<body onload="app.Start()">
+
+	<div class=hello> Hello World! </div>
+	<div id=ett />
+</body>
+</html>
